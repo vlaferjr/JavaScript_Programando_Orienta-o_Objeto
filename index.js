@@ -1,0 +1,1 @@
+//começando o projeto do banco em javaScript
