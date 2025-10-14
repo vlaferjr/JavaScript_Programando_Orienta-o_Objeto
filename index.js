@@ -11,23 +11,31 @@ class Cliente {
 class ContaCorrente {
   //atributos
   agencia;
-  saldo;
+  //#saldo; //atributo privado
+  _saldo = 0; //atributo protegido (convenção)
 
-  //método saque (só sacar se tiver saldo suficiente)
+  //método saque (só sacar se tiver #saldo suficiente)
   saque(valor) {
-    //saldo dessa conta conrrente tem que ser maior ou igual ao valor do saque
-    if (this.saldo >= valor) {
+    //#saldo dessa conta conrrente tem que ser maior ou igual ao valor do saque
+    if (this._saldo >= valor) {
         //se for maior ou igual, então pode fazer o saque
-      contaCorrente1.saldo -= valor;
-      console.log("Saque realizado com sucesso! Saldo atual: " + this.saldo);
+      contaCorrente1._saldo -= valor;
+      console.log("Saque realizado com sucesso! saldo atual: " + this._saldo);
+
+      return valor; //retorna o valor sacado
     }
   }
 
     //método deposito
     deposito(valor) {
-        //adiciona o valor ao saldo
-        this.saldo += valor;
-        console.log("Depósito realizado com sucesso! Saldo atual: " + this.saldo);
+      //se o valor do depósito for menor ou igual a zero
+        if (valor <= 0) {
+            console.log("Valor inválido para depósito.");
+            return; //encerra a função
+        }
+        //adiciona o valor ao #saldo
+        this._saldo += valor;
+        console.log("Depósito realizado com sucesso! saldo atual: " + this._saldo);
     }
 }
 
@@ -52,15 +60,23 @@ console.log(cliente1, cliente2);
 const contaCorrente1 = new ContaCorrente();
 //atribuindo valores aos atributos do objeto contaCorrente1
 contaCorrente1.agencia = 1001;
-contaCorrente1.saldo = 0;
+contaCorrente1._saldo = 0;
 
-//imprimindo o saldo contaCorrente1
-console.log("Saldo: " + contaCorrente1.saldo);
+//imprimindo o #saldo contaCorrente1
+console.log("saldo: " + contaCorrente1._saldo);
 
+//imprimindo o objeto contaCorrente1
+console.log("Informações atuais da conta: " + "Ag: " + contaCorrente1.agencia, "saldo: " + contaCorrente1._saldo);
 //--------------------------------------------------------------------
 
 //fazendo deposito na contaCorrente1
 contaCorrente1.deposito(500);
 
-//fazendo saque de 100 na minha conta corrente1
-contaCorrente1.saque(100);
+//constante valorSacado = valor que quero sacar;
+const valorSacado = contaCorrente1.saque(100);
+
+//imprimindo valor sacado
+console.log("Valor sacado: " + valorSacado);
+
+
+
