@@ -48,4 +48,38 @@ const valorSacado = contaCorrente1.saque(100);
 console.log("Valor sacado: " + valorSacado);
 
 
+// ----------------------------------------------
+//Atribuindo Cliente à ContaCorrente
+contaCorrente1.cliente = cliente1;
 
+//imprimindo o cliente da contaCorrente1 
+console.log("Cliente da contaCorrente1: " + contaCorrente1.cliente.nome + " - " +  contaCorrente1.cliente.cpf);
+
+//--------------------------------------------------------------------
+//criando o objeto contaCorrente2
+
+const contaCorrente2 = new ContaCorrente();
+//atribuindo valores aos atributos do objeto contaCorrente2
+contaCorrente2.agencia = 1002;
+contaCorrente2._saldo = 0;
+
+//imprimindo o objeto contaCorrente2
+console.log("Informações atuais da conta: " + "Ag: " + contaCorrente2.agencia, "saldo: " + contaCorrente2._saldo);
+
+//Atribuindo Cliente à ContaCorrente
+contaCorrente2.cliente = cliente2;
+
+// imprimir o cliente da contaCorrente2 
+console.log("Cliente da contaCorrente2: " + contaCorrente2.cliente.nome + " - " +  contaCorrente2.cliente.cpf); 
+//--------------------------------------------------------------------
+
+//fazendo a transferência da contaCorrente1 para a contaCorrente2
+let valorTransferencia = 200;
+contaCorrente1.transferencia(valorTransferencia, contaCorrente2);
+//imprimindo os saldos após a transferência
+console.log("Saldo contaCorrente1 após transferência: " + contaCorrente1._saldo);
+console.log("Saldo contaCorrente2 após transferência: " + contaCorrente2._saldo);
+
+//--------------------------------------------------------------------
+//Acessando o atributo cidade adicionado dinamicamente
+console.log("Cidade da contaCorrente2: " + contaCorrente2.cidade);

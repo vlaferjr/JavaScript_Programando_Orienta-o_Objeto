@@ -1,6 +1,7 @@
 // criando a classe ContaCorrente
 export class ContaCorrente {
   //atributos
+  cliente //atributo Cliente
   agencia;
   //#saldo; //atributo privado
   _saldo = 0; //atributo protegido (convenção)
@@ -27,5 +28,18 @@ export class ContaCorrente {
         //adiciona o valor ao #saldo
         this._saldo += valor;
         console.log("Depósito realizado com sucesso! saldo atual: " + this._saldo);
+    }
+
+    //método transferência
+    transferencia(valor, contaDestino) {
+        //tenta fazer o saque
+        const valorSacado = this.saque(valor);
+        //se o valor sacado for maior que zero
+        if (valorSacado > 0) {
+            //faz o depósito na conta destino
+            contaDestino.deposito(valorSacado);
+            console.log("Transferência realizada com sucesso! saldo atual: " + this._saldo);
+        }
+        contaDestino.cidade = "São Paulo";
     }
 }
