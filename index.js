@@ -56,6 +56,7 @@ contaCorrente1.cliente = cliente1;
 console.log("Cliente da contaCorrente1: " + contaCorrente1.cliente.nome + " - " +  contaCorrente1.cliente.cpf);
 
 //--------------------------------------------------------------------
+console.log("--------------------------------------------------");
 //criando o objeto contaCorrente2
 
 const contaCorrente2 = new ContaCorrente();
@@ -64,7 +65,7 @@ contaCorrente2.agencia = 1002;
 contaCorrente2._saldo = 0;
 
 //imprimindo o objeto contaCorrente2
-console.log("Informações atuais da conta: " + "Ag: " + contaCorrente2.agencia, "saldo: " + contaCorrente2._saldo);
+console.log("Informações atuais da conta2: " + "Ag: " + contaCorrente2.agencia, "saldo: " + contaCorrente2._saldo);
 
 //Atribuindo Cliente à ContaCorrente
 contaCorrente2.cliente = cliente2;
@@ -74,12 +75,26 @@ console.log("Cliente da contaCorrente2: " + contaCorrente2.cliente.nome + " - " 
 //--------------------------------------------------------------------
 
 //fazendo a transferência da contaCorrente1 para a contaCorrente2
+console.log("--------------------------------------------------");
+console.log("Realizando transferência de contaCorrente1 para contaCorrente2");
 let valorTransferencia = 200;
 contaCorrente1.transferencia(valorTransferencia, contaCorrente2);
+console.log("--------------------------------------------------");
+console.log("Saldos após a transferência: ");
 //imprimindo os saldos após a transferência
 console.log("Saldo contaCorrente1 após transferência: " + contaCorrente1._saldo);
 console.log("Saldo contaCorrente2 após transferência: " + contaCorrente2._saldo);
 
 //--------------------------------------------------------------------
 //Acessando o atributo cidade adicionado dinamicamente
+console.log("--------------------------------------------------");
+console.log("Acessando o atributo cidade adicionado dinamicamente à contaCorrente2");
 console.log("Cidade da contaCorrente2: " + contaCorrente2.cidade);
+
+//--------------------------------------------------------------------
+//tenatndo atribuir um valor ao saldo diretamente (não recomendado)
+console.log("--------------------------------------------------");
+console.log("tenatndo atribuir um valor ao saldo diretamente");
+contaCorrente2.saldo = 1000000; //não recomendado
+console.log("Saldo da contaCorrente1 após atribuição direta: " + contaCorrente2._saldo);
+

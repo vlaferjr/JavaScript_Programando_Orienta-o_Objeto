@@ -1,10 +1,30 @@
+import { Cliente } from "./Cliente.js";
+
 // criando a classe ContaCorrente
 export class ContaCorrente {
   //atributos
-  cliente //atributo Cliente
+  _cliente //atributo Cliente privado
   agencia;
   //#saldo; //atributo privado
   _saldo = 0; //atributo protegido (convenção)
+
+  //para acessar a propriedade cliente
+  get cliente() {
+    return this._cliente;
+  }
+
+  //para definir a propriedade cliente
+  set cliente(novoValor) {
+    if (novoValor instanceof Cliente) {
+      //se o novoValor for uma instância da classe Cliente atribui o valor
+      this._cliente = novoValor;
+    }
+  }
+
+  //acessando o #saldo
+  get saldo() {
+    return this._saldo;
+  }
 
   //método saque (só sacar se tiver #saldo suficiente)
   saque(valor) {
