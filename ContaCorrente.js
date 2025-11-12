@@ -8,6 +8,8 @@ export class ContaCorrente {
   //#saldo; //atributo privado
   _saldo = 0; //atributo protegido (convenção)
 
+  // -------------------------métodos getter e setter
+
   //para acessar a propriedade cliente
   get cliente() {
     return this._cliente;
@@ -25,6 +27,14 @@ export class ContaCorrente {
   get saldo() {
     return this._saldo;
   }
+
+  //-------------------------- construtor
+  constructor(cliente, agencia) {
+    this._cliente = cliente;
+    this.agencia = agencia;
+  }
+
+  // -------------------------métodos de operações bancárias
 
   //método saque (só sacar se tiver #saldo suficiente)
   saque(valor) {
