@@ -2,6 +2,7 @@ import { Cliente } from "./Cliente.js";
 
 // criando a classe ContaCorrente
 export class ContaCorrente {
+  static numeroDeContas = 0; //atributo estático para contar o número de contas criadas
   //atributos
   _cliente //atributo Cliente privado
   agencia;
@@ -32,6 +33,9 @@ export class ContaCorrente {
   constructor(cliente, agencia) {
     this._cliente = cliente;
     this.agencia = agencia;
+
+    //sempre contar quantos objetos foram criados
+    ContaCorrente.numeroDeContas += 1;
   }
 
   // -------------------------métodos de operações bancárias

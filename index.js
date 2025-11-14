@@ -91,3 +91,14 @@ console.log("--------------------------------------------------");
 console.log("Clientes criados com o construtor da classe Cliente:");
 console.log("Cliente1: " + cliente1.nome + " - " + cliente1.cpf);
 console.log("Cliente2: " + cliente2.nome + " - " + cliente2.cpf);
+
+// imprimindo clientes com ajuda do construtor da classe Cliente
+console.log("--------------------------------------------------");
+console.log("Imprimir os objetos ContaCorrente:");
+console.log(contaCorrente1);
+console.log(contaCorrente2);
+
+
+// imprimindo clientes com ajuda do construtor da classe Cliente
+console.log("--------------------------------------------------");
+console.log("Número de contas criadas: " + ContaCorrente.numeroDeContas);
